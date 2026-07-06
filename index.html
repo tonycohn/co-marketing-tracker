@@ -264,18 +264,21 @@
       line-height: 1.4;
     }
 
-    .shared-urls {
+    .shared-urls,
+    .masterclass-done {
       font-size: 12px;
       line-height: 1.6;
       word-break: break-all;
     }
 
-    .shared-urls a {
+    .shared-urls a,
+    .masterclass-done a {
       display: block;
       color: var(--ef-purple);
       text-decoration: none;
     }
-    .shared-urls a:hover { text-decoration: underline; }
+    .shared-urls a:hover,
+    .masterclass-done a:hover { text-decoration: underline; }
 
     .fireside-scheduled {
       font-size: 12px;
@@ -376,15 +379,16 @@
     <div class="table-wrap">
       <table>
         <colgroup>
-          <col style="width: 8%;">
-          <col style="width: 8%;">
-          <col style="width: 13%;">
+          <col style="width: 7%;">
+          <col style="width: 7%;">
+          <col style="width: 12%;">
           <col style="width: 5%;">
-          <col style="width: 20%;">
-          <col style="width: 12%;">
+          <col style="width: 18%;">
+          <col style="width: 10%;">
           <col style="width: 11%;">
-          <col style="width: 11%;">
-          <col style="width: 12%;">
+          <col style="width: 10%;">
+          <col style="width: 10%;">
+          <col style="width: 10%;">
         </colgroup>
         <thead>
           <tr>
@@ -393,6 +397,7 @@
             <th>What They Do</th>
             <th>Ref</th>
             <th>Status &amp; Notes</th>
+            <th>Masterclass Done?</th>
             <th>Shared By Company</th>
             <th>Fireside/Webinar Scheduled?</th>
             <th>Fireside/Webinar Performance</th>
@@ -410,6 +415,7 @@
               <span class="badge badge-stopped">Not Moving Forward</span><br/>
               <span class="status-notes">Did Masterclass; partner wasn't engaged. Topic not exciting enough to advance.</span>
             </td>
+            <td class="masterclass-done"></td>
             <td class="shared-urls">No</td>
             <td class="fireside-scheduled">No</td>
             <td class="fireside-performance">N/A</td>
@@ -425,6 +431,7 @@
               <span class="badge badge-review">Team Review 6/11</span><br/>
               <span class="status-notes">Brent hosted the call and is working on the masterclass. ETA for team review 6/11.</span>
             </td>
+            <td class="masterclass-done"></td>
             <td class="shared-urls"></td>
             <td class="fireside-scheduled"></td>
             <td class="fireside-performance"></td>
@@ -440,6 +447,7 @@
               <span class="badge badge-creating">Creating Masterclass</span><br/>
               <span class="status-notes">Hosted masterclass call 6/10. Masterclass to be created next week for team review.</span>
             </td>
+            <td class="masterclass-done"></td>
             <td class="shared-urls"></td>
             <td class="fireside-scheduled"></td>
             <td class="fireside-performance"></td>
@@ -456,6 +464,7 @@
               <span class="badge badge-review" style="margin-left:4px;">Team Review 6/11</span><br/>
               <span class="status-notes">Hosted call; currently editing masterclass. Slated for team review 6/11.</span>
             </td>
+            <td class="masterclass-done"></td>
             <td class="shared-urls"></td>
             <td class="fireside-scheduled"></td>
             <td class="fireside-performance"></td>
@@ -471,6 +480,7 @@
               <span class="badge badge-creating">Creating Masterclass</span><br/>
               <span class="status-notes">Hosted masterclass call 6/10. Masterclass to be created next week for team review.</span>
             </td>
+            <td class="masterclass-done"></td>
             <td class="shared-urls"></td>
             <td class="fireside-scheduled"></td>
             <td class="fireside-performance"></td>
@@ -486,6 +496,7 @@
               <span class="badge badge-creating">Creating Masterclass</span><br/>
               <span class="status-notes">Hosted masterclass call 6/10. Masterclass to be created next week for team review.</span>
             </td>
+            <td class="masterclass-done"></td>
             <td class="shared-urls"></td>
             <td class="fireside-scheduled"></td>
             <td class="fireside-performance"></td>
@@ -501,6 +512,7 @@
               <span class="badge badge-scheduling">Scheduling</span><br/>
               <span class="status-notes">Currently working on scheduling a masterclass.</span>
             </td>
+            <td class="masterclass-done"></td>
             <td class="shared-urls"></td>
             <td class="fireside-scheduled"></td>
             <td class="fireside-performance"></td>
@@ -516,6 +528,7 @@
               <span class="badge badge-editing">Editing Masterclass</span><br/>
               <span class="status-notes">Editing masterclass, targeted for 6/11.</span>
             </td>
+            <td class="masterclass-done"></td>
             <td class="shared-urls"></td>
             <td class="fireside-scheduled"></td>
             <td class="fireside-performance"></td>
@@ -531,6 +544,7 @@
               <span class="badge badge-casestudy">Case Study</span><br/>
               <span class="status-notes">Referral via Darriun (event sponsorship). Agreed to case study. Reached out to schedule call on 6/10.</span>
             </td>
+            <td class="masterclass-done"></td>
             <td class="shared-urls"></td>
             <td class="fireside-scheduled"></td>
             <td class="fireside-performance"></td>
