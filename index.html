@@ -259,6 +259,14 @@
     .badge-casestudy { background: #fce7f3; color: #9d174d; }
     .badge-approval  { background: var(--ef-grey-3); color: #4b5563; border: 1px solid var(--ef-grey-2); }
 
+    /* Status labels in the table read as plain colored text, no pill/box */
+    td .badge {
+      background: none;
+      border: none;
+      padding: 0;
+      border-radius: 0;
+    }
+
     .status-notes {
       font-size: 12px;
       color: #4b5563;
