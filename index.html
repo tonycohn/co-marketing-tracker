@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Howdy Partner</title>
+  <style>
+    :root {
+      --ef-dark-purple: #260A72;
+      --ef-purple: #4007AD;
+      --ef-light-purple: #daccf0;
+      --ef-yellow: #FFDF6B;
+      --ef-grey-1: #B1B9C4;
+      --ef-grey-2: #C7CDD5;
+      --ef-grey-3: #E8EAEE;
+      --ef-near-black: #1A1A1A;
+      --ef-gradient-dark: linear-gradient(135deg, #25095B, #8A3AFF, #C41294);
+      --ef-gradient-electric: linear-gradient(135deg, #5D18EB, #5F17EB, #9D81D6);
+      --ef-gradient-smooth: linear-gradient(135deg, #4006AD, #4006AD, #8A3AFF);
+      --ef-gradient-py: linear-gradient(135deg, #4007AD 0%, #FFDF6B 100%);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--ef-grey-3);
+      color: var(--ef-near-black);
+      padding: 0 0 40px;
+    }
+
+    /* ── Header ── */
+    header {
+      background: var(--ef-gradient-dark);
+      padding: 28px 40px 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .header-logo {
+      height: 36px;
+      width: auto;
+      filter: brightness(0) invert(1);
+    }
+
+    .header-divider {
+      width: 1px;
+      height: 32px;
+      background: rgba(255,255,255,0.3);
+    }
+
+    .header-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.2px;
+    }
+
+    .header-sub {
+      font-size: 12px;
+      color: rgba(255,255,255,0.65);
+      margin-top: 2px;
+    }
+
+    .header-date {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+      white-space: nowrap;
+    }
+
+    /* ── Page body ── */
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 24px 0;
+    }
+
+    /* ── Process strip ── */
+    .process-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--ef-grey-1);
+      margin-bottom: 10px;
+    }
+
+    .process {
+      display: flex;
+      align-items: stretch;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(38,10,114,0.12);
+      margin-bottom: 28px;
+    }
+
+    .step {
+      flex: 1;
+      padding: 15px 20px;
+      position: relative;
+    }
+
+    .step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: -14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 28px solid transparent;
+      border-bottom: 28px solid transparent;
+      z-index: 2;
+    }
+
+    .step-1 {
+      background: var(--ef-dark-purple);
+    }
+    .step-1::after { border-left: 14px solid var(--ef-dark-purple); }
+
+    .step-2 {
+      background: var(--ef-purple);
+      padding-left: 28px;
+    }
+    .step-2::after { border-left: 14px solid var(--ef-purple); }
+
+    .step-3 {
+      background: var(--ef-gradient-py);
+      padding-left: 28px;
+    }
+
+    .step-num {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 3px;
+    }
+
+    .step-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 3px;
+    }
+
+    .step-desc {
+      font-size: 11.5px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.4;
+    }
+
+    /* ── Table ── */
+    .table-wrap {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(38,10,114,0.10);
+      overflow: hidden;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    thead th {
+      background: var(--ef-dark-purple);
+      color: rgba(255,255,255,0.85);
+      text-align: left;
+      padding: 11px 14px;
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      white-space: nowrap;
+    }
+
+    thead th:first-child { border-radius: 0; }
+
+    tbody tr {
+      border-bottom: 1px solid var(--ef-grey-3);
+      transition: background 0.12s;
+    }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: #faf9ff; }
+
+    td {
+      padding: 12px 14px;
+      vertical-align: top;
+      line-height: 1.45;
+    }
+
+    .contact-name {
+      font-weight: 600;
+      color: var(--ef-near-black);
+      white-space: nowrap;
+    }
+
+    .company-link {
+      display: inline-block;
+      margin-top: 2px;
+      font-size: 11.5px;
+      color: var(--ef-purple);
+      text-decoration: none;
+    }
+    .company-link:hover { text-decoration: underline; }
+
+    .company-plain {
+      display: inline-block;
+      margin-top: 2px;
+      font-size: 11.5px;
+      color: var(--ef-purple);
+    }
+
+    .what-they-do { color: #374151; }
+
+    .ref-badge {
+      display: inline-block;
+      background: var(--ef-light-purple);
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--ef-dark-purple);
+    }
+
+    /* Status badges */
+    .badge {
+      display: inline-block;
+      border-radius: 5px;
+      padding: 3px 9px;
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      white-space: nowrap;
+      margin-bottom: 5px;
+    }
+
+    .badge-stopped   { background: #fee2e2; color: #b91c1c; }
+    .badge-editing   { background: #fff8db; color: #92600a; border: 1px solid #FFDF6B; }
+    .badge-review    { background: var(--ef-light-purple); color: var(--ef-dark-purple); }
+    .badge-creating  { background: #ede9fe; color: var(--ef-purple); }
+    .badge-scheduling { background: #f3e8ff; color: #6b21a8; }
+    .badge-casestudy { background: #fce7f3; color: #9d174d; }
+
+    .status-notes {
+      font-size: 12px;
+      color: #4b5563;
+      line-height: 1.4;
+    }
+
+    tr.row-anomaly { background: #c8ccd2; }
+    tr.row-anomaly:hover { background: #bfc3ca; }
+    tr.row-anomaly td { color: #2d2d2d; }
+    tr.row-anomaly .status-notes { color: #3a3a3a; }
+
+    /* ── Hero image ── */
+    .body-layout {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    .body-main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .hero-image-wrap {
+      flex-shrink: 0;
+      width: 200px;
+      padding-top: 36px;
+    }
+    .hero-image-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(38,10,114,0.18);
+    }
+
+    /* ── Footer ── */
+    footer {
+      max-width: 1120px;
+      margin: 16px auto 0;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .footer-legend span {
+      font-size: 10.5px;
+      color: var(--ef-grey-1);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-right: 4px;
+    }
+
+    footer .badge { margin-bottom: 0; }
+
+    .footer-date {
+      font-size: 11px;
+      color: var(--ef-grey-1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-left">
+      <img
+        src="https://cdn.prod.website-files.com/657c8f6f3ca9b1f45c4ccf3e/6876720bd3922a45c3177e59_everflow_R_colored-p-3200.png"
+        alt="Everflow"
+        class="header-logo"
+      />
+      <div class="header-divider"></div>
+      <div>
+        <div class="header-title">Howdy Partner 🤠</div>
+        <div class="header-sub">Co-Marketing Activities — Tech Partner Filtering</div>
+      </div>
+    </div>
+    <div class="header-date">Updated June 10, 2026</div>
+  </header>
+
+  <div class="page">
+  <div class="body-layout">
+    <div class="body-main">
+
+    <!-- Process steps -->
+    <div class="process-label">Qualification Process</div>
+    <div class="process">
+      <div class="step step-1">
+        <div class="step-num">Step 1</div>
+        <div class="step-title">Masterclass</div>
+        <div class="step-desc">Partner must be engaged &amp; topic must be compelling to advance.</div>
+      </div>
+      <div class="step step-2">
+        <div class="step-num">Step 2</div>
+        <div class="step-title">Webinar / Fireside</div>
+        <div class="step-desc">Propose a joint session — partner must promote it heavily.</div>
+      </div>
+      <div class="step step-3">
+        <div class="step-num">Step 3</div>
+        <div class="step-title">Tech Partnership</div>
+        <div class="step-desc">Explore formal partnership once prior steps are proven.</div>
+      </div>
+    </div>
+
+    <!-- Partner table -->
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Contact</th>
+            <th>Company</th>
+            <th>What They Do</th>
+            <th>Ref</th>
+            <th>Status &amp; Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td class="contact-name">Forrest Anderson</td>
+            <td><span class="company-plain">Customer2.ai</span></td>
+            <td class="what-they-do">AI customer service solution</td>
+            <td><span class="ref-badge">Ed</span></td>
+            <td>
+              <span class="badge badge-stopped">Not Moving Forward</span><br/>
+              <span class="status-notes">Did Masterclass; partner wasn't engaged. Topic not exciting enough to advance.</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="contact-name">Matīss Maliks</td>
+            <td><a href="https://ltvx.ai/" class="company-link" target="_blank">ltvx.ai</a></td>
+            <td class="what-they-do">AI service helping merchants recover declined payments</td>
+            <td><span class="ref-badge">Sam</span></td>
+            <td>
+              <span class="badge badge-review">Team Review 6/11</span><br/>
+              <span class="status-notes">Brent hosted the call and is working on the masterclass. ETA for team review 6/11.</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="contact-name">Anna Gomez</td>
+            <td><span class="company-plain">PartnerBoost</span></td>
+            <td class="what-they-do">Solutions to boost Amazon sales</td>
+            <td><span class="ref-badge">Remy</span></td>
+            <td>
+              <span class="badge badge-creating">Creating Masterclass</span><br/>
+              <span class="status-notes">Hosted masterclass call 6/10. Masterclass to be created next week for team review.</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="contact-name">Joe Campanella</td>
+            <td><span class="company-plain">Complily</span></td>
+            <td class="what-they-do">AI-powered compliance platform</td>
+            <td><span class="ref-badge">Laurie</span></td>
+            <td>
+              <span class="badge badge-editing">Editing Masterclass</span>
+              <span class="badge badge-review" style="margin-left:4px;">Team Review 6/11</span><br/>
+              <span class="status-notes">Hosted call; currently editing masterclass. Slated for team review 6/11.</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="contact-name">Ryan Ludlow</td>
+            <td><span class="company-plain">NewsBreak</span></td>
+            <td class="what-they-do">Local news publisher</td>
+            <td><span class="ref-badge">Laurie</span></td>
+            <td>
+              <span class="badge badge-creating">Creating Masterclass</span><br/>
+              <span class="status-notes">Hosted masterclass call 6/10. Masterclass to be created next week for team review.</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="contact-name">Cristian Ionescu</td>
+            <td><span class="company-plain">CatStats.ai</span></td>
+            <td class="what-they-do">AI platform for affiliate networks</td>
+            <td><span class="ref-badge">Michael</span></td>
+            <td>
+              <span class="badge badge-creating">Creating Masterclass</span><br/>
+              <span class="status-notes">Hosted masterclass call 6/10. Masterclass to be created next week for team review.</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="contact-name">Kelly Basinger</td>
+            <td><span class="company-plain">Taboola</span></td>
+            <td class="what-they-do">Ad network</td>
+            <td><span class="ref-badge">Laurie</span></td>
+            <td>
+              <span class="badge badge-scheduling">Scheduling</span><br/>
+              <span class="status-notes">Currently working on scheduling a masterclass.</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="contact-name">Michael Mourgides</td>
+            <td><span class="company-plain">MediaScale</span></td>
+            <td class="what-they-do">Media buying solution built on EF</td>
+            <td><span class="ref-badge">Ed</span></td>
+            <td>
+              <span class="badge badge-editing">Editing Masterclass</span><br/>
+              <span class="status-notes">Editing masterclass, targeted for 6/11.</span>
+            </td>
+          </tr>
+
+          <tr class="row-anomaly">
+            <td class="contact-name">Lauren Cucinotta</td>
+            <td><span class="company-plain">CareValidate</span></td>
+            <td class="what-they-do">OPM Health &amp; Wellness client</td>
+            <td><span class="ref-badge">Darriun</span></td>
+            <td>
+              <span class="badge badge-casestudy">Case Study</span><br/>
+              <span class="status-notes">Referral via Darriun (event sponsorship). Agreed to case study. Reached out to schedule call on 6/10.</span>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    </div><!-- /body-main -->
+
+    <!-- Hero image -->
+    <div class="hero-image-wrap">
+      <img
+        src="/Users/tonycohn/Downloads/herocowboy.jpeg"
+        alt="Howdy Partner"
+      />
+    </div>
+
+  </div><!-- /body-layout -->
+  </div><!-- /page -->
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-legend">
+      <span>Legend:</span>
+      <span class="badge badge-stopped">Not Moving Forward</span>
+      <span class="badge badge-scheduling">Scheduling</span>
+      <span class="badge badge-creating">Creating</span>
+      <span class="badge badge-editing">Editing</span>
+      <span class="badge badge-review">Team Review</span>
+      <span class="badge badge-casestudy">Case Study</span>
+    </div>
+    <div class="footer-date">Generated June 10, 2026</div>
+  </footer>
+
+</body>
+</html>
