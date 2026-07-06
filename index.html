@@ -78,7 +78,7 @@
 
     /* ── Page body ── */
     .page {
-      max-width: 1120px;
+      width: 100%;
       margin: 0 auto;
       padding: 28px 24px 0;
     }
@@ -288,34 +288,9 @@
     tr.row-anomaly td { color: #2d2d2d; }
     tr.row-anomaly .status-notes { color: #3a3a3a; }
 
-    /* ── Hero image ── */
-    .body-layout {
-      display: flex;
-      gap: 24px;
-      align-items: flex-start;
-    }
-
-    .body-main {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .hero-image-wrap {
-      flex-shrink: 0;
-      width: 200px;
-      padding-top: 36px;
-    }
-    .hero-image-wrap img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 10px;
-      box-shadow: 0 4px 16px rgba(38,10,114,0.18);
-    }
-
     /* ── Footer ── */
     footer {
-      max-width: 1120px;
+      width: 100%;
       margin: 16px auto 0;
       padding: 0 24px;
       display: flex;
@@ -367,8 +342,6 @@
   </header>
 
   <div class="page">
-  <div class="body-layout">
-    <div class="body-main">
 
     <!-- Process steps -->
     <div class="process-label">Qualification Process</div>
@@ -538,17 +511,6 @@
       </table>
     </div>
 
-    </div><!-- /body-main -->
-
-    <!-- Hero image -->
-    <div class="hero-image-wrap">
-      <img
-        src="herocowboy.jpeg"
-        alt="Howdy Partner"
-      />
-    </div>
-
-  </div><!-- /body-layout -->
   </div><!-- /page -->
 
   <!-- Footer -->
